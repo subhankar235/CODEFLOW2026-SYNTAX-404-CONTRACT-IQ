@@ -1,0 +1,43 @@
+# ── Dependencies ──────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ── Python ────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+
+# ── Environment ──────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── IDE & OS ──────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ── Next.js ───────────────────────────────────────────────
+.next/
+out/
+
+# ── Uploads / Temp ───────────────────────────────────────
+uploads/
+temp/
+*.log
+
+# ── Docker ────────────────────────────────────────────────
+.docker/
