@@ -108,10 +108,13 @@ async def generate_counter_offer(
     )
     clause = result.scalars().first()
 
+    print(f"DEBUG POST: clause_uuid={clause_uuid}, user_id={user.id}, clause={clause}")
+
     if not clause:
+        print("DEBUG POST: Raising 404 because clause is None!")
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Clause not found or access denied",
+            detail=f"Clause not found or access denied. clause_uuid={clause_uuid}, user_id={user.id}",
         )
 
     result = await db.execute(
@@ -220,10 +223,13 @@ async def get_counter_offer(
     )
     clause = result.scalars().first()
 
+    print(f"DEBUG GET: clause_uuid={clause_uuid}, user_id={user.id}, clause={clause}")
+
     if not clause:
+        print("DEBUG GET: Raising 404 because clause is None!")
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Clause not found or access denied",
+            detail=f"Clause not found or access denied. clause_uuid={clause_uuid}, user_id={user.id}",
         )
 
     result = await db.execute(

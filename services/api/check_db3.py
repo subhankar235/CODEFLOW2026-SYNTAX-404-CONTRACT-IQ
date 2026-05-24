@@ -12,8 +12,8 @@ async def run():
     
     engine = create_async_engine(DATABASE_URL, connect_args={"ssl": ssl_context})
     async with engine.connect() as conn:
-        result = await conn.execute(text("SELECT id, user_id FROM contracts WHERE id = '0077d290-cd4e-4abf-a417-a36b93fbbfd3'"))
-        print('Contract for clause:', result.fetchall())
+        result = await conn.execute(text("SELECT clauses.id FROM clauses JOIN contracts ON clauses.contract_id = contracts.id WHERE clauses.id = '4350569e-1134-45b0-aacb-6b16d230b2fd' AND contracts.user_id = '67a8111e-c620-4166-bd6b-6250f4ec9465'"))
+        print('Query result:', result.fetchall())
         
     await engine.dispose()
 
