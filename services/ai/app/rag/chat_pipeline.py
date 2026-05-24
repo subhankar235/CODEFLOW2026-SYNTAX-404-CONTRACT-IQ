@@ -8,10 +8,16 @@ import os
 import json
 import logging
 from typing import List, Dict, Any, AsyncGenerator, Optional
+from dotenv import load_dotenv, find_dotenv
+
+# Find .env by walking up from this file's directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+root_env_path = os.path.join(current_dir, "../../../../.env")
+load_dotenv(dotenv_path=os.path.abspath(root_env_path))
 
 logger = logging.getLogger(__name__)
 
-OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 COLLECTION_NAME = "contract_qa"
 
@@ -61,13 +67,13 @@ def _get_chat_model(streaming: bool = False):
     """
     from langchain_community.chat_models import ChatOpenAI
 
-    api_key = os.environ.get("OPENROUTER_API_KEY", "")
-    model = os.environ.get("FAST_MODEL", "google/gemini-2.0-flash-001")
+    api_key = os.environ.get("GROQ_API_KEY", "")
+    model = os.environ.get("FAST_MODEL", "llama-3.1-8b-instant")
 
     return ChatOpenAI(
         model=model,
         openai_api_key=api_key,
-        openai_api_base=OPENROUTER_BASE_URL,
+        openai_api_base=GROQ_BASE_URL,
         streaming=streaming,
         temperature=0.7,
     )
@@ -77,14 +83,14 @@ def _build_prompt():
     """Build the chat prompt template."""
     from langchain.prompts import PromptTemplate
 
-    prompt_template = """You are a contract analysis assistant. You help users understand their contracts from their perspective as the employee/service provider.
+    prompt_template = """You are a friendly, conversational legal assistant. Your goal is to help the user understand their contract in simple, plain language.
 
 RULES:
-1. Always cite the specific clause or section you reference (e.g., "Section 4.2 states..." or "The non-compete clause says...")
-2. If the answer is NOT in the provided context, say "This topic is not addressed in the contract" - never fabricate contract terms.
-3. Be concise and accurate. Use plain language.
-4. If you reference a specific clause, include the clause text in your answer.
-5. Highlight risks clearly and explain their practical implications.
+1. Be Conversational: Respond naturally and warmly to greetings (e.g., "Hi", "Hello"). If the user is just saying hello, DO NOT mention the contract, DO NOT mention missing clauses, and DO NOT mention previous conversations. Just say hello back and ask how you can help them with their contract!
+2. Cite Clauses: When answering a specific question about the contract, always cite the specific clause or section. Include a brief snippet of the clause text if helpful.
+3. Stick to Context: If the user asks a specific question about their contract terms, and the answer is NOT in the provided context, politely explain that you cannot find that specific term. NEVER fabricate terms or guess.
+4. Explain Risks: Highlight any risks clearly and explain their practical implications like you are talking to a friend. Avoid overly robotic or generic phrasing.
+5. Empathy: The user is likely an employee or service provider. Frame your answers to protect their interests and help them understand what they are signing.
 
 Context from contract:
 {context}
@@ -92,9 +98,9 @@ Context from contract:
 Conversation History:
 {history}
 
-Question: {question}
+User: {question}
 
-Answer:"""
+Assistant:"""
 
     return PromptTemplate(
         template=prompt_template,
@@ -149,12 +155,22 @@ async def answer_question(
         )
 
         # Stream the response token by token
-        from langchain.schema import HumanMessage
+        from langchain.schema import HumanMessage, SystemMessage
         
         streaming_model = _get_chat_model(streaming=True)
         accumulated = ""
         
-        async for chunk in streaming_model.astream([HumanMessage(content=formatted_prompt)]):
+        system_instruction = (
+            "You are a friendly, helpful legal assistant. Your tone is warm, professional, and conversational. "
+            "If the user asks a question about their contract, answer it using the provided context. "
+            "If the user is just saying hello, greet them back warmly and ask how you can help. "
+            "Do NOT fabricate information."
+        )
+
+        async for chunk in streaming_model.astream([
+            SystemMessage(content=system_instruction),
+            HumanMessage(content=formatted_prompt)
+        ]):
             token = chunk.content if hasattr(chunk, "content") else str(chunk)
             if token:
                 accumulated += token
