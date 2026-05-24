@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚖️ LegalTech AI
+# ⚖️ Contract IQ
 
 **AI-powered contract analysis at enterprise depth.**
 ## 🎥 Demo Video
