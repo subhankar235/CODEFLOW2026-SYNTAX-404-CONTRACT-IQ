@@ -809,7 +809,7 @@ chore/<description>
 
 ## License
 
-[MIT License](./LICENCE) — Copyright (c) 2026 Soumojit Das
+[MIT License](./LICENCE) — Copyright (c) 2026 SUBHANKAR NATH
 
 ---
 
