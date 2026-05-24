@@ -2,7 +2,10 @@
 
 # ⚖️ LegalTech AI
 
-**AI-powered contract analysis at enterprise depth.**
+**fine-tunned:AI-powered contract analysis at enterprise depth.**
+## 🎥 Demo Video
+
+<video src="https://github.com/user-attachments/assets/YOUR_VIDEO.mp4" controls width="100%"></video>
 
 Upload a contract. In minutes, know exactly what you're signing.
 
@@ -16,7 +19,7 @@ Upload a contract. In minutes, know exactly what you're signing.
 
 </div>
 
----
+-
 
 ## Overview
 
