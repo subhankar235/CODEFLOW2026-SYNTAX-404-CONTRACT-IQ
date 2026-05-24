@@ -111,14 +111,71 @@ async def get_precedent(
     precedent = result.scalars().first()
 
     if not precedent:
+<<<<<<< HEAD
         # Return an empty but successful response for clauses without a precedent match
+=======
+        # Generate on-the-fly using the AI service for clauses without a precedent match
+        try:
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.info(f"Generating on-the-fly precedent for clause {clause_id} via {AI_SERVICE_URL}")
+            
+            async with httpx.AsyncClient(timeout=60.0) as client:
+                resp = await client.post(
+                    f"{AI_SERVICE_URL}/api/v1/precedent",
+                    json={
+                        "clause_text": clause.text,
+                        "clause_type": clause.risk_category or "other",
+                        "risk_category": clause.risk_category or "other",
+                    },
+                )
+                if resp.status_code == 200:
+                    data = resp.json()
+                    
+                    # Store it for next time
+                    import uuid
+                    new_precedent = PrecedentMatch(
+                        clause_id=clause.id,
+                        precedent_summary=data.get("precedent_summary", ""),
+                        enforcement_likelihood=data.get("enforcement_likelihood", "Uncertain"),
+                        confidence_score=data.get("confidence_score", 60),
+                        cited_cases=data.get("cited_cases", [])
+                    )
+                    db.add(new_precedent)
+                    await db.commit()
+                    
+                    return JSONResponse(
+                        status_code=200,
+                        content={
+                            "clause_id": clause_id,
+                            "status": "ready",
+                            "precedent_summary": data.get("precedent_summary", ""),
+                            "enforcement_likelihood": data.get("enforcement_likelihood", "Uncertain"),
+                            "confidence_score": data.get("confidence_score", 60),
+                            "cited_cases": data.get("cited_cases", []),
+                        },
+                    )
+                else:
+                    logger.warning(f"AI service returned status {resp.status_code}: {resp.text}")
+        except Exception as e:
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.warning("AI service call failed for on-the-fly precedent: %s", e)
+
+        # Fallback if AI call fails
+>>>>>>> a06fb37f16f9d4bedfbfbd9a2038673103e5a1fa
         return JSONResponse(
             status_code=200,
             content={
                 "clause_id": clause_id,
                 "status": "ready",
+<<<<<<< HEAD
                 "precedent_summary": "",
                 "enforcement_likelihood": "",
+=======
+                "precedent_summary": "No precedents could be automatically generated for this clause at this time.",
+                "enforcement_likelihood": "Uncertain",
+>>>>>>> a06fb37f16f9d4bedfbfbd9a2038673103e5a1fa
                 "confidence_score": 0,
                 "cited_cases": [],
             },

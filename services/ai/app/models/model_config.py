@@ -1,4 +1,5 @@
 """
+<<<<<<< HEAD
 services/ai/models/model_config.py
 # This file just stores model names
 
@@ -40,3 +41,11 @@ DEFAULT_TEMPERATURE: float = float(os.getenv("LLM_TEMPERATURE", "0.1"))
 MAX_RETRIES: int = 3
 BACKOFF_BASE: float = 1.5   # seconds; actual wait = BACKOFF_BASE ** attempt
 RETRYABLE_STATUS_CODES: frozenset[int] = frozenset({429, 500, 502, 503, 504})
+=======
+Model configuration constants for OpenRouter.
+"""
+
+PRIMARY_MODEL = "llama-3.3-70b-versatile"
+
+FAST_MODEL = "llama-3.1-8b-instant"
+>>>>>>> a06fb37f16f9d4bedfbfbd9a2038673103e5a1fa

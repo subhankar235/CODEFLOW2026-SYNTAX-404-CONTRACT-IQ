@@ -1,5 +1,9 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
+<<<<<<< HEAD
+=======
+import json
+>>>>>>> a06fb37f16f9d4bedfbfbd9a2038673103e5a1fa
 
 router = APIRouter()
 
@@ -96,7 +100,11 @@ Include 1-3 cited cases from the precedents above. Confidence score should be ba
 
     try:
         result = await complete(
+<<<<<<< HEAD
             model="meta-llama/llama-3.3-70b-instruct",
+=======
+            model="llama-3.3-70b-versatile",
+>>>>>>> a06fb37f16f9d4bedfbfbd9a2038673103e5a1fa
             system_prompt="You are a senior legal analyst. Respond only with valid JSON.",
             user_prompt=prompt,
             max_tokens=1500,
@@ -104,7 +112,10 @@ Include 1-3 cited cases from the precedents above. Confidence score should be ba
             json_mode=True,
         )
 
+<<<<<<< HEAD
         import json
+=======
+>>>>>>> a06fb37f16f9d4bedfbfbd9a2038673103e5a1fa
         content = result.get("choices", [{}])[0].get("message", {}).get("content", "")
         if not content:
             raise HTTPException(status_code=500, detail="Empty response from LLM")

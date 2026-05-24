@@ -355,7 +355,11 @@ async def _call_llm_batch_async(
             system_prompt=system_prompt,
             user_prompt=user_prompt,
             model=PRIMARY_MODEL,
+<<<<<<< HEAD
             json_mode=False,
+=======
+            json_mode=True,
+>>>>>>> a06fb37f16f9d4bedfbfbd9a2038673103e5a1fa
         )
         content = raw_response["choices"][0]["message"].get("content", "") or ""
         parsed = _parse_llm_response(content, batch)

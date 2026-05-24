@@ -159,7 +159,11 @@ async def _run_power_asymmetry_async(
             system_prompt="You are a contract negotiation expert. Return ONLY valid JSON.",
             user_prompt=prompt,
             model=primary_model,
+<<<<<<< HEAD
             json_mode=False,
+=======
+            json_mode=True,
+>>>>>>> a06fb37f16f9d4bedfbfbd9a2038673103e5a1fa
         )
 
         content = response["choices"][0]["message"].get("content", "{}")

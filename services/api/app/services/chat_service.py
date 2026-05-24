@@ -27,11 +27,27 @@ async def verify_contract_and_get_id(
     """
     try:
         contract_id = UUID(contract_id_str)
+<<<<<<< HEAD
         user_uuid = UUID(user_id)
     except ValueError:
         return None
 
     contract = await contract_repo.get_contract_by_id(db, contract_id, user_uuid)
+=======
+    except ValueError:
+        return None
+
+    from sqlalchemy import select
+    from app.models.user import User
+    
+    user_result = await db.execute(select(User).where(User.clerk_user_id == user_id))
+    db_user = user_result.scalars().first()
+    
+    if not db_user:
+        return None
+
+    contract = await contract_repo.get_contract_by_id(db, contract_id, db_user.id)
+>>>>>>> a06fb37f16f9d4bedfbfbd9a2038673103e5a1fa
 
     if not contract:
         return None
@@ -90,6 +106,18 @@ async def stream_chat_response(
     logger.info("Streaming chat response for contract %s", contract_id)
 
     try:
+<<<<<<< HEAD
+=======
+        import sys
+        import os
+        
+        # Add the root directory to sys.path so we can import services.ai from services/api
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        root_dir = os.path.abspath(os.path.join(current_dir, "../../../../"))
+        if root_dir not in sys.path:
+            sys.path.append(root_dir)
+
+>>>>>>> a06fb37f16f9d4bedfbfbd9a2038673103e5a1fa
         from services.ai.app.rag.chat_pipeline import answer_question
 
         history = format_conversation_history(conversation_history or [])
@@ -97,9 +125,15 @@ async def stream_chat_response(
         async for event in answer_question(contract_id, question, history):
             yield event
 
+<<<<<<< HEAD
     except ImportError:
         # AI service not available — yield a graceful fallback response
         logger.warning("AI service not available, using fallback response")
+=======
+    except ImportError as e:
+        # AI service not available — yield a graceful fallback response
+        logger.warning(f"AI service not available, using fallback response: {e}")
+>>>>>>> a06fb37f16f9d4bedfbfbd9a2038673103e5a1fa
         fallback = (
             "The AI analysis service is currently unavailable. "
             "Please ensure the AI service is running and try again."

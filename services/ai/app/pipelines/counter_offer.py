@@ -171,7 +171,11 @@ async def _call_llm_async(system_prompt: str, user_prompt: str) -> str:
         system_prompt=system_prompt,
         user_prompt=user_prompt,
         model=PRIMARY_MODEL,
+<<<<<<< HEAD
         json_mode=False,
+=======
+        json_mode=True,
+>>>>>>> a06fb37f16f9d4bedfbfbd9a2038673103e5a1fa
     )
     content = raw_response["choices"][0]["message"].get("content", "")
     return content
