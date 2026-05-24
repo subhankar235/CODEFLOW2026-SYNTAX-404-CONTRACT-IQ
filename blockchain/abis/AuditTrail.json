@@ -1,0 +1,123 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "error",
+    "name": "EmptyHash",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidEventType",
+    "inputs": [{ "name": "eventType", "type": "uint8", "internalType": "uint8" }]
+  },
+  {
+    "type": "error",
+    "name": "Unauthorized",
+    "inputs": []
+  },
+  {
+    "type": "event",
+    "name": "AuditEventLogged",
+    "inputs": [
+      { "name": "eventId", "type": "uint256", "indexed": true, "internalType": "uint256" },
+      { "name": "contractHash", "type": "bytes32", "indexed": true, "internalType": "bytes32" },
+      { "name": "eventType", "type": "uint8", "indexed": true, "internalType": "enum AuditTrail.EventType" },
+      { "name": "actorAddress", "type": "address", "indexed": false, "internalType": "address" },
+      { "name": "timestamp", "type": "uint256", "indexed": false, "internalType": "uint256" }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "function",
+    "name": "logEvent",
+    "inputs": [
+      { "name": "contractHash", "type": "bytes32", "internalType": "bytes32" },
+      { "name": "eventType", "type": "uint8", "internalType": "uint8" },
+      { "name": "actorAddress", "type": "address", "internalType": "address" },
+      { "name": "dataHash", "type": "bytes32", "internalType": "bytes32" }
+    ],
+    "outputs": [{ "name": "eventId", "type": "uint256", "internalType": "uint256" }],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getEventIds",
+    "inputs": [{ "name": "contractHash", "type": "bytes32", "internalType": "bytes32" }],
+    "outputs": [{ "name": "", "type": "uint256[]", "internalType": "uint256[]" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getEvent",
+    "inputs": [{ "name": "eventId", "type": "uint256", "internalType": "uint256" }],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct AuditTrail.AuditEvent",
+        "components": [
+          { "name": "contractHash", "type": "bytes32", "internalType": "bytes32" },
+          { "name": "eventType", "type": "uint8", "internalType": "enum AuditTrail.EventType" },
+          { "name": "actorAddress", "type": "address", "internalType": "address" },
+          { "name": "dataHash", "type": "bytes32", "internalType": "bytes32" },
+          { "name": "previousEventHash", "type": "bytes32", "internalType": "bytes32" },
+          { "name": "timestamp", "type": "uint256", "internalType": "uint256" }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getEvents",
+    "inputs": [{ "name": "contractHash", "type": "bytes32", "internalType": "bytes32" }],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct AuditTrail.AuditEvent[]",
+        "components": [
+          { "name": "contractHash", "type": "bytes32", "internalType": "bytes32" },
+          { "name": "eventType", "type": "uint8", "internalType": "enum AuditTrail.EventType" },
+          { "name": "actorAddress", "type": "address", "internalType": "address" },
+          { "name": "dataHash", "type": "bytes32", "internalType": "bytes32" },
+          { "name": "previousEventHash", "type": "bytes32", "internalType": "bytes32" },
+          { "name": "timestamp", "type": "uint256", "internalType": "uint256" }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getLastEventHash",
+    "inputs": [{ "name": "contractHash", "type": "bytes32", "internalType": "bytes32" }],
+    "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "totalEvents",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "owner",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "transferOwnership",
+    "inputs": [{ "name": "newOwner", "type": "address", "internalType": "address" }],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  }
+]

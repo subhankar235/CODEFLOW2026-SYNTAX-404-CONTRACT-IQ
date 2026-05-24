@@ -1,0 +1,25 @@
+{
+  "name": "legaltech-blockchain",
+  "version": "1.0.0",
+  "description": "LegalTech AI — Blockchain smart contracts for immutable contract verification and audit trail",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "test:coverage": "hardhat coverage",
+    "deploy:local": "hardhat ignition deploy ./ignition/modules/Deploy.js --network localhost",
+    "deploy:amoy": "hardhat ignition deploy ./ignition/modules/Deploy.js --network amoy",
+    "deploy:mainnet": "hardhat ignition deploy ./ignition/modules/Deploy.js --network mainnet",
+    "node": "hardhat node",
+    "clean": "hardhat clean",
+    "verify:amoy": "hardhat verify --network amoy",
+    "export:abis": "node scripts/export-abis.js"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.0",
+    "dotenv": "^16.4.5"
+  },
+  "dependencies": {
+    "ethers": "^6.13.0"
+  }
+}

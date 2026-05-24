@@ -1,0 +1,6 @@
+{
+  "clause_type": "limitation_of_liability",
+  "favorable_text": "In no event shall either party's aggregate liability exceed the total amounts paid or payable by Customer in the 6 months preceding the claim.",
+  "domain": "vendor",
+  "explanation": "This version shifts risk back to the drafting party by imposing reasonable caps or exclusions."
+}

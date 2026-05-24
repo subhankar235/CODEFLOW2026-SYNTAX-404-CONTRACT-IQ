@@ -1,0 +1,17 @@
+<div class="section">
+    <div class="page-break"></div>
+    <h2>{{ i18n.legal_precedents }}</h2>
+    <p>{{ i18n.precedent_intro }}</p>
+
+    {% for match in precedents %}
+    <div style="margin-bottom: 2rem; border-left: 4px solid var(--primary); padding-left: 1rem; page-break-inside: avoid;">
+        <h4 style="margin-top: 0;">{{ match.case_name }} ({{ match.year }})</h4>
+        <p><strong>{{ i18n.jurisdiction }}:</strong> {{ match.jurisdiction }}</p>
+        <p><strong>{{ i18n.outcome }}:</strong> {{ match.outcome }}</p>
+        <p><strong>{{ i18n.relevance }}:</strong> {{ match.precedent_summary }}</p>
+        <div style="font-size: 0.875rem; color: var(--text-muted);">
+            {{ i18n.enforcement_likelihood }}: {{ match.enforcement_likelihood }}%
+        </div>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,24 @@
+1. Payment Terms
+The client agrees to pay the service provider within 30 days of receiving the invoice. Late payments will incur a penalty of 2% per month. All payments must be made in Indian Rupees via bank transfer.
+
+2. Term and Termination
+This agreement shall commence on the effective date and continue for a period of one year. Either party may terminate this agreement by providing 15 days written notice. Upon termination, all pending dues must be cleared within 7 days.
+
+3. Confidentiality
+Both parties agree to maintain the confidentiality of all proprietary information shared during the course of this agreement. Confidential information shall not be disclosed to any third party without prior written consent. This obligation shall survive termination of the agreement.
+
+4. Intellectual Property
+All intellectual property created during the execution of this contract shall remain the property of the service provider unless otherwise agreed in writing. The client shall have a limited license to use the deliverables for internal purposes only.
+
+5. Limitation of Liability
+The service provider shall not be liable for any indirect, incidental, or consequential damages arising out of this agreement. The total liability shall not exceed the amount paid by the client under this contract.
+
+6. Governing Law
+This agreement shall be governed by and construed in accordance with the laws of India. Any disputes arising out of this agreement shall be subject to the jurisdiction of the courts located in Kolkata.
+
+7. Force Majeure
+Neither party shall be held liable for failure to perform obligations due to events beyond their reasonable control, including but not limited to natural disasters, war, or government restrictions.
+
+8. Entire Agreement
+This document constitutes the entire agreement between the parties and supersedes all prior agreements, understandings, or representations related to the subject matter herein.
+

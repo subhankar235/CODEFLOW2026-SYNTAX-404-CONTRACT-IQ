@@ -1,0 +1,32 @@
+<div class="section">
+    <div class="page-break"></div>
+    <h2>{{ i18n.detailed_clause_analysis }}</h2>
+    {% for clause in clauses %}
+    <div style="margin-bottom: 2rem; border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 1rem; page-break-inside: avoid;">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+            <h4 style="margin: 0;">{{ i18n.clause }} #{{ loop.index }} - {{ clause.risk_category|title }}</h4>
+            <div class="risk-badge risk-{{ clause.risk_level|lower }}">{{ clause.risk_level }}</div>
+        </div>
+        
+        <p style="font-style: italic; color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">
+            "{{ clause.text|truncate(200) }}"
+        </p>
+        
+        <div style="margin-bottom: 0.5rem;">
+            <strong>{{ i18n.plain_english }}:</strong> {{ clause.plain_english }}
+        </div>
+        
+        {% if clause.worst_case_scenario %}
+        <div style="margin-bottom: 0.5rem;">
+            <strong>{{ i18n.worst_case }}:</strong> {{ clause.worst_case_scenario }}
+        </div>
+        {% endif %}
+
+        {% if clause.risk_level in ['HIGH', 'MEDIUM'] %}
+        <div style="margin-top: 1rem; padding: 0.75rem; background-color: #fffbeb; border-left: 4px solid var(--risk-medium);">
+            <strong>{{ i18n.recommendation }}:</strong> {{ clause.recommendation }}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
