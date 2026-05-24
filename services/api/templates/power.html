@@ -1,0 +1,36 @@
+<div class="section">
+    <div class="page-break"></div>
+    <h2>{{ i18n.power_asymmetry_analysis }}</h2>
+    
+    <div style="background-color: #eff6ff; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 2rem;">
+        <p style="margin: 0; font-size: 1.125rem;"><strong>{{ i18n.power_score }}:</strong></p>
+        <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-top: 0.5rem;">
+            {{ power.score }} / 100 ({{ power.label }})
+        </div>
+    </div>
+
+    <h3>{{ i18n.key_imbalances }}</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>{{ i18n.clause }}</th>
+                <th>{{ i18n.impact }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for imbalance in power.key_imbalances %}
+            <tr>
+                <td>{{ imbalance.clause }}</td>
+                <td>{{ imbalance.why }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>{{ i18n.negotiation_leverage }}</h3>
+    <ul>
+        {% for leverage in power.leverage_points %}
+        <li>{{ leverage }}</li>
+        {% endfor %}
+    </ul>
+</div>

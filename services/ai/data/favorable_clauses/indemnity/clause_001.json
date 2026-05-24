@@ -1,0 +1,6 @@
+{
+  "clause_type": "indemnity",
+  "favorable_text": "Party A shall only indemnify Party B for direct damages arising out of Party A's gross negligence or willful misconduct, capped at $30,000.",
+  "domain": "indemnity",
+  "explanation": "This version shifts risk back to the drafting party by imposing reasonable caps or exclusions."
+}

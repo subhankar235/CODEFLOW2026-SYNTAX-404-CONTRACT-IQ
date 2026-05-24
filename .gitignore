@@ -1,43 +1,84 @@
-# ── Dependencies ──────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+.env
+pyrightconfig.json
+.env.*
+!.env.example
+pylance.json
 node_modules/
-.pnp
-.pnp.js
+.next/
+out/
+build/
+dist/
+coverage/
+*.tsbuildinfo
+.vercel/
 
-# ── Python ────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
-*$py.class
+*.pyo
+*.pyd
+*.so
+venv/
+.venv/
+env/
+ENV/
+*.egg
 *.egg-info/
 dist/
 build/
-.eggs/
-*.egg
-.venv/
-venv/
-env/
 
-# ── Environment ──────────────────────────────────────────
-.env
-.env.local
-.env.*.local
+*.sqlite3
+*.db
+*.db-journal
+.supabase/
 
-# ── IDE & OS ──────────────────────────────────────────────
-.idea/
-.vscode/
-*.swp
-*.swo
-*~
-.DS_Store
-Thumbs.db
+celerybeat-schedule
+celerybeat.pid
 
-# ── Next.js ───────────────────────────────────────────────
-.next/
-out/
+*.bin
+*.pt
+*.pth
+*.onnx
+*.model
+spacy_cache/
 
-# ── Uploads / Temp ───────────────────────────────────────
 uploads/
+tmp/
 temp/
+*.pdf
+*.docx
+
+pinecone_cache/
+*.faiss
+*.index
+
+logs/
 *.log
 
-# ── Docker ────────────────────────────────────────────────
-.docker/
+.coverage
+htmlcov/
+.pytest_cache/
+
+.vscode/
+.idea/
+*.iml
+
+.DS_Store
+desktop.ini
+
+*.out
+*.exe
+*.dll
+
+generated_pdfs/
+
+.cache/
+
+# Legal AI Data (seeded locally, not pushed to git)
+services/ai/app/data/favorable_clauses/
+services/ai/app/data/precedents/

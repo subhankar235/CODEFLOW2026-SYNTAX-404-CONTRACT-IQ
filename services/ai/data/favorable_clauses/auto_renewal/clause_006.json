@@ -1,0 +1,6 @@
+{
+  "clause_type": "auto_renewal",
+  "favorable_text": "This Agreement shall not automatically renew. Either party must provide written notice of their intent to renew at least 30 days prior to expiration.",
+  "domain": "vendor",
+  "explanation": "This version shifts risk back to the drafting party by imposing reasonable caps or exclusions."
+}

@@ -1,2 +1,5 @@
-from app.models.base import Base
-from app.models import *
+"""SQLAlchemy declarative base and model discovery."""
+
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()

@@ -1,0 +1,33 @@
+<div class="section">
+    <h2>{{ i18n.executive_summary }}</h2>
+    <div style="background-color: #f3f4f6; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <p style="margin: 0; font-size: 1.125rem;"><strong>{{ i18n.overall_risk }}:</strong></p>
+                <div class="risk-badge risk-{{ summary.risk_level|lower }}" style="font-size: 1.25rem; margin-top: 0.5rem;">
+                    {{ summary.risk_score }}/100 - {{ summary.risk_level }}
+                </div>
+            </div>
+            <div style="text-align: right;">
+                <p style="margin: 0;"><strong>{{ i18n.verdict }}:</strong></p>
+                <p style="font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-top: 0.5rem;">
+                    {{ summary.should_sign }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <h3>{{ i18n.key_concerns }}</h3>
+    <ul>
+        {% for concern in summary.top_concerns %}
+        <li>{{ concern }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>{{ i18n.key_positives }}</h3>
+    <ul>
+        {% for positive in summary.top_positives %}
+        <li>{{ positive }}</li>
+        {% endfor %}
+    </ul>
+</div>

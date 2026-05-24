@@ -1,84 +1,78 @@
+version: '3.8'
+
 services:
-  web:
-    build:
-      context: ./apps/web
-      dockerfile: Dockerfile
+  db:
+    image: postgres:16
+    container_name: legaltech-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: legaltech
     ports:
-      - "3000:3000"
-    env_file:
-      - .env
+      - "5432:5432"
     volumes:
-      - ./apps/web:/app
-      - /app/node_modules
-    depends_on:
-      - api
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: legaltech-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   api:
     build:
       context: ./services/api
       dockerfile: Dockerfile
-    ports:
-      - "8000:8000"
+    container_name: legaltech-api
     env_file:
       - .env
+    ports:
+      - "8000:8000"
     volumes:
       - ./services/api:/app
     depends_on:
       db:
         condition: service_healthy
       redis:
-        condition: service_started
+        condition: service_healthy
+    command: python run.py
 
   ai:
     build:
       context: ./services/ai
       dockerfile: Dockerfile
-    ports:
-      - "8001:8001"
+    container_name: legaltech-ai
     env_file:
       - .env
+    ports:
+      - "8001:8001"
     volumes:
       - ./services/ai:/app
-    depends_on:
-      - redis
 
   worker:
     build:
       context: ./apps/worker
       dockerfile: Dockerfile
+    container_name: legaltech-worker
     env_file:
       - .env
     volumes:
       - ./apps/worker:/app
     depends_on:
-      - redis
-      - db
-
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-
-  db:
-    image: pgvector/pgvector:pg16
-    ports:
-      - "5432:5432"
-    env_file:
-      - .env
-    environment:
-      POSTGRES_USER: ${DATABASE_USER:-postgres}
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-postgres}
-      POSTGRES_DB: ${DATABASE_NAME:-contractiq}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+      redis:
+        condition: service_healthy
+      db:
+        condition: service_healthy
 
 volumes:
   postgres_data:
-  redis_data:

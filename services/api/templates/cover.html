@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="section" style="text-align: center; margin-top: 5cm;">
+    <img src="{{ logo_url }}" alt="Logo" class="logo">
+    <h1 style="font-size: 32pt; margin-top: 1cm;">{{ i18n.analysis_report }}</h1>
+    <h2 style="color: var(--text-muted);">{{ contract_name }}</h2>
+    
+    <div style="margin-top: 3cm;">
+        <p><strong>{{ i18n.client }}:</strong> {{ user_name }}</p>
+        <p><strong>{{ i18n.date }}:</strong> {{ current_date }}</p>
+        <p><strong>{{ i18n.contract_type }}:</strong> {{ contract_type }}</p>
+    </div>
+</div>
+<div class="page-break"></div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{
+  "en": [
+    {"original": "indemnity", "translation": "indemnity"},
+    {"original": "liability", "translation": "liability"},
+    {"original": "intellectual property", "translation": "intellectual property"},
+    {"original": "termination", "translation": "termination"},
+    {"original": "jurisdiction", "translation": "jurisdiction"}
+  ],
+  "es": [
+    {"original": "indemnity", "translation": "indemnización"},
+    {"original": "liability", "translation": "responsabilidad"},
+    {"original": "intellectual property", "translation": "propiedad intelectual"},
+    {"original": "termination", "translation": "rescisión"},
+    {"original": "jurisdiction", "translation": "jurisdicción"}
+  ],
+  "fr": [
+    {"original": "indemnity", "translation": "indemnisation"},
+    {"original": "liability", "translation": "responsabilité"},
+    {"original": "intellectual property", "translation": "propriété intellectuelle"},
+    {"original": "termination", "translation": "résiliation"},
+    {"original": "jurisdiction", "translation": "juridiction"}
+  ],
+  "de": [
+    {"original": "indemnity", "translation": "Freistellung"},
+    {"original": "liability", "translation": "Haftung"},
+    {"original": "intellectual property", "translation": "geistiges Eigentum"},
+    {"original": "termination", "translation": "Kündigung"},
+    {"original": "jurisdiction", "translation": "Gerichtsbarkeit"}
+  ],
+  "pt": [
+    {"original": "indemnity", "translation": "indemnização"},
+    {"original": "liability", "translation": "responsabilidade"},
+    {"original": "intellectual property", "translation": "propriedade intelectual"},
+    {"original": "termination", "translation": "rescisão"},
+    {"original": "jurisdiction", "translation": "jurisdição"}
+  ],
+  "hi": [
+    {"original": "indemnity", "translation": "क्षतिपूर्ति"},
+    {"original": "liability", "translation": "दायित्व"},
+    {"original": "intellectual property", "translation": "बौद्धिक संपत्ति"},
+    {"original": "termination", "translation": "समाप्ति"},
+    {"original": "jurisdiction", "translation": "अधिकार क्षेत्र"}
+  ]
+}

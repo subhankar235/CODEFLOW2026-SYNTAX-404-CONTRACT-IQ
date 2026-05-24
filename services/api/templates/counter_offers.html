@@ -1,0 +1,30 @@
+<div class="section">
+    <div class="page-break"></div>
+    <h2>{{ i18n.proposed_counter_offers }}</h2>
+    
+    {% for offer in counter_offers %}
+    <div style="margin-bottom: 3rem; page-break-inside: avoid;">
+        <h3>{{ offer.risk_category|title }} - {{ i18n.alternative_clauses }}</h3>
+        
+        <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem;">
+            <div style="padding: 1rem; border: 1px solid #d1d5db; background-color: #f9fafb;">
+                <h5 style="margin-top: 0; color: #1f2937;">{{ i18n.conservative }}</h5>
+                <p style="font-size: 0.9375rem;">{{ offer.conservative.clause_text }}</p>
+                <p style="font-size: 0.8125rem; color: var(--text-muted);">{{ offer.conservative.explanation }}</p>
+            </div>
+            
+            <div style="padding: 1rem; border: 1px solid #93c5fd; background-color: #eff6ff;">
+                <h5 style="margin-top: 0; color: var(--primary);">{{ i18n.balanced }}</h5>
+                <p style="font-size: 0.9375rem;">{{ offer.balanced.clause_text }}</p>
+                <p style="font-size: 0.8125rem; color: var(--text-muted);">{{ offer.balanced.explanation }}</p>
+            </div>
+            
+            <div style="padding: 1rem; border: 1px solid #fca5a5; background-color: #fef2f2;">
+                <h5 style="margin-top: 0; color: #b91c1c;">{{ i18n.aggressive }}</h5>
+                <p style="font-size: 0.9375rem;">{{ offer.aggressive.clause_text }}</p>
+                <p style="font-size: 0.8125rem; color: var(--text-muted);">{{ offer.aggressive.explanation }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

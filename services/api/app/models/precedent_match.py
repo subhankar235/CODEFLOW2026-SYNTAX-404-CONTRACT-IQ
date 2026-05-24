@@ -1,22 +1,33 @@
+"""Precedent match model."""
+
 import uuid
-from datetime import datetime, timezone
-
-from sqlalchemy import String, Text, Float, DateTime, ForeignKey
-from sqlalchemy.dialects.postgresql import JSON
+from datetime import datetime
+from sqlalchemy import String, DateTime, func, ForeignKey, Integer, Text, Float, JSON
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-
-from app.models.base import Base
+from ..db.base import Base
 
 
 class PrecedentMatch(Base):
+    """Precedent match table — stores legal precedent matches for HIGH-risk clauses."""
+
     __tablename__ = "precedent_matches"
 
-    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    clause_id: Mapped[str] = mapped_column(String(36), ForeignKey("clauses.id"), nullable=False)
+    id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4)
+    clause_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("clauses.id", ondelete="CASCADE"), nullable=False, index=True
+    )
     precedent_summary: Mapped[str] = mapped_column(Text, nullable=False)
-    enforcement_likelihood: Mapped[str | None] = mapped_column(String(30), nullable=True)
-    confidence_score: Mapped[float | None] = mapped_column(Float, nullable=True)
-    cited_cases: Mapped[list | None] = mapped_column(JSON, nullable=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
+    enforcement_likelihood: Mapped[str] = mapped_column(
+        String, nullable=False
+    )  # "Very Likely", "Likely", "Uncertain", "Unlikely"
+    confidence_score: Mapped[float] = mapped_column(Float, nullable=False)  # 0.0-1.0
+    cited_cases: Mapped[dict | list] = mapped_column(JSON, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
 
+    # Relationships
     clause = relationship("Clause", back_populates="precedent_matches")
+
+    def __repr__(self) -> str:
+        return f"<PrecedentMatch(id={self.id}, clause_id={self.clause_id})>"

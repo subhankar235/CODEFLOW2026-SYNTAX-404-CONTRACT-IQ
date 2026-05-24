@@ -1,0 +1,1 @@
+export const CLERK_WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET || "";

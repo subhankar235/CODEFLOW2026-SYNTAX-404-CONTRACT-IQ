@@ -1,0 +1,233 @@
+================================================================================
+                    COUNTER-OFFER GENERATED OUTPUT
+================================================================================
+
+Input Contract Clause:
+--------------------------------------------------------------------------------
+EMPLOYMENT AGREEMENT - CONFIDENTIALITY AND RESTRICTIVE COVENANTS
+
+SECTION 5 - CONFIDENTIALITY AND TRADE SECRETS
+
+5.1 Definition of Confidential Information
+During the course of employment, Employee will have access to and become 
+acquainted with confidential and proprietary information belonging to 
+Company, its affiliates, and their clients, including but not limited to:
+- Trade secrets, inventions, ideas, processes, formulas, source code
+- Business and marketing plans, strategies, forecasts, financial info
+- Customer lists, customer preferences, contact information
+- Employee lists, organizational charts, compensation information
+- Operations manuals, procedures, training materials, and know-how
+
+SECTION 6 - NON-COMPETE (24 months worldwide)
+SECTION 7 - INTELLECTUAL PROPERTY ASSIGNMENT  
+SECTION 8 - INDEMNIFICATION
+SECTION 9 - LIMITATION OF LIABILITY
+
+--------------------------------------------------------------------------------
+Contract Type: Employment Agreement
+User Role: Senior Software Engineer
+Clause Categories: CONFIDENTIALITY, NON-COMPETE, IP, INDEMNIFICATION, LIMITATION
+================================================================================
+
+
+================================================================================
+COUNTER-OFFER OPTION 1: AGGRESSIVE (Employee-Favorable)
+================================================================================
+
+"The Employee's confidentiality and non-compete obligations shall be 
+limited to the following:
+
+CONFIDENTIALITY:
+- Confidential Information means only information specifically 
+  designated as confidential by Company in writing
+- Excludes: general skills, knowledge, experience, information 
+  available in public domain
+- Duration: 12 months post-termination only
+- Obligations do not survive termination
+
+NON-COMPETE:
+- Duration: SIX (6) MONTHS post-termination only
+- Geographic Scope: Employee's primary work location + 25 miles only
+- Customer Restriction: Only applies to specific customers with 
+  whom Employee had direct, documented sales/service in final 6 months
+- Excluded Activities: General employment, consulting in different 
+  role, own business unrelated to Company's products
+
+INTELLECTUAL PROPERTY:
+- Employee assigns only inventions: (a) specifically commissioned 
+  in writing, (b) using Company's proprietary technology, (c) during 
+  working hours with Company resources
+- Excludes: Prior inventions, general skill development, inventions 
+  conceived after termination without using Company resources
+- Post-termination: 3 month limit (reduced from 12)
+
+INDEMNIFICATION:
+- Employee indemnifies Company only for: (a) willful misconduct, 
+  (b) gross negligence, (c) breach of Agreement
+- Excludes: Ordinary negligence, business decisions, third-party 
+  claims not caused by Employee
+
+LIMITATION OF LIABILITY:
+- Company's liability limited to: direct damages only, no consequential
+- Cap: Total compensation during employment + 30% severance
+- Employee may seek injunctive relief for confidentiality breaches"
+
+EXPLANATION:
+This aggressive version provides maximum employee protection by:
+1. Narrowing confidential information definition
+2. Reducing non-compete from 24 months to 6 months
+3. Limiting geographic scope to actual work area
+4. Excluding general skills from IP assignment
+5. Removing indemnification for ordinary negligence
+6. Increasing liability cap for employee protection
+
+
+================================================================================
+COUNTER-OFFER OPTION 2: BALANCED (Mutually Reasonable)
+================================================================================
+
+"The Employee's confidentiality and non-compete obligations shall be 
+reasonably limited to protect legitimate business interests:
+
+CONFIDENTIALITY:
+- Confidential Information includes: trade secrets, customer data, 
+  pricing information, technical specifications, business strategies
+- Excludes: General industry knowledge, publicly available information, 
+  employee skills and experience
+- Duration: 24 months post-termination
+- Survives termination only for trade secrets
+
+NON-COMPETE:
+- Duration: TWELVE (12) MONTHS post-termination
+- Geographic Scope: Region(s) where Employee actually worked
+- Customer Restriction: Customers Employee directly serviced or 
+  had substantive involvement with during employment
+- Carve-outs: Employee may work for competitors in different industry 
+  segments or roles
+
+INTELLECTUAL PROPERTY:
+- Employee assigns: (a) inventions related to Company's business, 
+  (b) developed using Company resources, (c) conceived during employment
+- Employee retains: Prior inventions, general skill development, 
+  inventions 6 months post-termination
+- Company has first right to negotiate for other inventions
+
+INDEMNIFICATION:
+- Employee indemnifies for: (a) breach of Agreement, (b) gross negligence, 
+  (c) willful misconduct, (d) violation of law
+- Excludes: Good faith business decisions, ordinary negligence
+
+LIMITATION OF LIABILITY:
+- Company's liability: Direct damages + reasonable consequential
+- Cap: Annual compensation x 2
+- Exceptions: Confidentiality breach, willful misconduct, indemnification
+
+EXPLANATION:
+This balanced version protects both parties' interests:
+1. Retains reasonable 24-month confidentiality for trade secrets
+2. 12-month non-compete with actual work region
+3. Clear carve-outs for career flexibility
+4. IP assignment with reasonable exclusions
+5. Mutual indemnification with good faith protection
+6. Balanced liability cap based on tenure
+
+
+================================================================================
+COUNTER-OFFER OPTION 3: CONSERVATIVE (Employer-Favorable with Modifications)
+================================================================================
+
+"The Employee agrees to the following modified restrictions:
+
+CONFIDENTIALITY:
+- Confidential Information includes all information designated as 
+  confidential or that should reasonably be understood as confidential
+- Duration: THREE (3) YEARS post-termination for trade secrets; 
+  24 months for other confidential information
+- Employee may use general knowledge and skills
+
+NON-COMPETE:
+- Duration: EIGHTEEN (18) MONTHS post-termination
+- Geographic Scope: Country/Region of Company operations
+- Customer Restriction: All customers of Company during employment
+- Carve-outs: None (full restriction applies)
+- Judicial modification: If found overbroad, court may modify
+
+INTELLECTUAL PROPERTY:
+- Employee assigns: All inventions relating to Company's business, 
+  conceived within ONE (1) year post-termination using any knowledge 
+  gained during employment
+- Prior inventions must be disclosed; Company may negotiate license
+- Employee agrees to execute all documents necessary for assignment
+
+INDEMNIFICATION:
+- Employee indemnifies Company for: All claims arising from Employee's 
+  acts, errors, omissions, or breaches, including defense costs
+- No exclusions - full indemnification for Company protection
+
+LIMITATION OF LIABILITY:
+- Company's liability: Direct damages only (no consequential)
+- Cap: Total compensation during tenure
+- No exceptions - capped liability applies to all claims
+
+EXPLANATION:
+This conservative version preserves employer protections:
+1. Maintains 18-month non-compete (reduced from 24)
+2. Allows court to modify if overbroad
+3. Adds 1-year post-emp IP assignment (industry standard)
+4. Full indemnification with defined scope
+5. Reduced cap from unlimited to compensation-based
+
+
+================================================================================
+NEGOTIATION EMAIL
+================================================================================
+
+Subject: Proposed Modifications to Employment Agreement Terms
+
+Dear [HR Director / Legal Team],
+
+Thank you for the opportunity to review the employment agreement. I 
+appreciate the detailed terms and am excited to join the team. However, 
+I would like to propose several modifications for consideration:
+
+PRIMARY CONCERNS:
+
+1. NON-COMPETE DURATION
+   Current: 24 months worldwide
+   Proposed: 12 months in [specific region]
+   Rationale: A 24-month restriction significantly limits career 
+   opportunities in my field. 12 months is consistent with industry 
+   standards and still protects legitimate interests.
+
+2. GEOGRAPHIC SCOPE
+   Current: Worldwide
+   Proposed: [Specific countries/regions where I will work]
+   Rationale: A worldwide restriction is unnecessarily broad for a 
+   regional role.
+
+3. INTELLECTUAL PROPERTY
+   Current: All inventions within 12 months post-termination
+   Proposed: 6 months, limited to Company-specific technology
+   Rationale: I have prior inventions that should be excluded, and 
+   general skill development should remain my property.
+
+4. INDEMNIFICATION
+   Current: Full indemnification for all claims
+   Proposed: Limited to willful misconduct and breach of agreement
+   Rationale: Good faith business decisions should not trigger 
+   indemnification.
+
+I am confident these modifications protect Company's interests while 
+allowing me to contribute fully to the team. I am happy to discuss 
+these points further or provide additional context.
+
+Thank you for your consideration.
+
+Best regards,
+[Employee Name]
+[Contact Information]
+
+
+================================================================================
+                              END OF COUNTER-OFFER
+================================================================================

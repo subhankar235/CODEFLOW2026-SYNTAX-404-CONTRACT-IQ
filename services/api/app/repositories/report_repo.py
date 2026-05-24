@@ -1,51 +1,83 @@
-from datetime import datetime, timezone
+"""Report repository — database query functions for reports."""
 
-from sqlalchemy import select, delete as sa_delete
+from typing import Optional
+from uuid import UUID
+from datetime import datetime
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
+from ..models.report import Report
 
-from app.models.report import Report
 
-
-async def create(db: AsyncSession, report: Report) -> Report:
-    db.add(report)
-    await db.commit()
-    await db.refresh(report)
+async def create_report(
+    session: AsyncSession,
+    contract_id: UUID,
+    file_path: str,
+    share_uuid: str,
+    share_expires_at: datetime,
+) -> Report:
+    """Create a new report."""
+    report = Report(
+        contract_id=contract_id,
+        file_path=file_path,
+        share_uuid=share_uuid,
+        share_expires_at=share_expires_at,
+    )
+    session.add(report)
+    await session.commit()
+    await session.refresh(report)
     return report
 
 
-async def get_by_id(db: AsyncSession, report_id: str) -> Report | None:
-    result = await db.execute(select(Report).where(Report.id == report_id))
-    return result.scalar_one_or_none()
+async def get_report_by_id(session: AsyncSession, report_id: UUID) -> Optional[Report]:
+    """Get report by ID."""
+    result = await session.execute(select(Report).where(Report.id == report_id))
+    return result.scalars().first()
 
 
-async def get_by_share_uuid(db: AsyncSession, share_uuid: str) -> Report | None:
-    result = await db.execute(select(Report).where(Report.share_uuid == share_uuid))
-    return result.scalar_one_or_none()
+async def get_report_by_share_uuid(
+    session: AsyncSession, share_uuid: str
+) -> Optional[Report]:
+    """Get report by share UUID (for public sharing)."""
+    result = await session.execute(
+        select(Report).where(Report.share_uuid == share_uuid)
+    )
+    return result.scalars().first()
 
 
-async def get_all_by_user_id(db: AsyncSession, user_id: str) -> list[Report]:
-    result = await db.execute(
-        select(Report).join(Report.contract).where(Report.contract.has(user_id=user_id))
+async def get_report_by_contract_id(
+    session: AsyncSession, contract_id: UUID
+) -> Optional[Report]:
+    """Get most recent report for a contract."""
+    result = await session.execute(
+        select(Report)
+        .where(Report.contract_id == contract_id)
         .order_by(Report.created_at.desc())
+        .limit(1)
     )
-    return list(result.scalars().all())
+    return result.scalars().first()
 
 
-async def update(db: AsyncSession, report: Report) -> Report:
-    await db.commit()
-    await db.refresh(report)
-    return report
+async def delete_report(session: AsyncSession, report_id: UUID) -> bool:
+    """Delete a report."""
+    report = await get_report_by_id(session, report_id)
+    if not report:
+        return False
+
+    await session.delete(report)
+    await session.commit()
+    return True
 
 
-async def delete(db: AsyncSession, report: Report) -> None:
-    await db.delete(report)
-    await db.commit()
+async def delete_expired_reports(session: AsyncSession) -> int:
+    """Delete all expired share links and return count deleted."""
+    from datetime import datetime, timezone
 
-
-async def delete_expired(db: AsyncSession) -> int:
     now = datetime.now(timezone.utc)
-    result = await db.execute(
-        sa_delete(Report).where(Report.expires_at < now).returning(Report.id)
-    )
-    await db.commit()
-    return len(result.scalars().all())
+    result = await session.execute(select(Report).where(Report.share_expires_at <= now))
+    expired_reports = result.scalars().all()
+
+    for report in expired_reports:
+        await session.delete(report)
+
+    await session.commit()
+    return len(expired_reports)
