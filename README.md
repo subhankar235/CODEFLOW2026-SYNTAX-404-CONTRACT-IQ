@@ -5,8 +5,9 @@
 **fine-tunned:AI-powered contract analysis at enterprise depth.**
 ## 🎥 Demo Video
 
-<video src="https://github.com/user-attachments/assets/YOUR_VIDEO.mp4" controls width="100%"></video>
+## 🎥 Demo Video
 
+[Watch the Full Demo](https://screenrec.com/share/NLyxgfrzIj)
 Upload a contract. In minutes, know exactly what you're signing.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
