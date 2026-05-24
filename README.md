@@ -28,7 +28,7 @@ Upload a contract. In minutes, know exactly what you're signing.
 
 Most people sign legal contracts without truly understanding them. Even those who read every word often lack the legal expertise to spot unfair clauses, power imbalances, or provisions that courts consistently refuse to enforce.
 
-**LegalTech AI** solves this by combining a multi-stage AI analysis pipeline with:
+**Contract-IQ   solves this by combining a multi-stage AI analysis pipeline with:
 
 - **RAG over a curated legal precedent corpus** for evidence-backed risk assessment
 - **On-chain contract registration** on Polygon PoS for tamper-evident audit trails
