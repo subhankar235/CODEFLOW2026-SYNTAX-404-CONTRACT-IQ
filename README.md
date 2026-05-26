@@ -3,13 +3,7 @@
 # ⚖️ Contract IQ
 
 **AI-powered contract analysis at enterprise depth.**
-## 🎥 Demo Video
 
-<p align="center">
-  <a href="https://screenrec.com/share/NLyxgfrzIj">
-    <img src="https://img.shields.io/badge/Watch-Live_Demo-red?style=for-the-badge&logo=googleplay" alt="Watch Demo"/>
-  </a>
-</p>
 Upload a contract. In minutes, know exactly what you're signing.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
